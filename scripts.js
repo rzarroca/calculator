@@ -25,25 +25,17 @@ function getOperation() {
 	return window[operator](a,b);
 }
 
+// numbers functionality
 
-/*
-function sum (array) {
-	return array.reduce((total, number) => total + number, 0)
-}
+let storageValue = 0; // number variable
 
-function multiply (array) {
-	return array.reduce((total, number) => total * number, 1)
-}
+const numbers = document.querySelectorAll('.numbers');
+numbers.forEach((number) => {
+	number.addEventListener('click', function(e) {
+		storageValue = storageValue.toString() + e.target.innerText;
+		storageValue = parseFloat(storageValue);
 
-function power(a, b) {
-	return a**b;
-}
-
-function factorial(num) {
-	let sum = 1;
-	for (let i = num; i > 0; i--) {
-		sum *= i;
-	}
-	return sum;
-}
-*/
+		const display = document.querySelector('.display');
+		display.innerText = storageValue;
+	});
+});
