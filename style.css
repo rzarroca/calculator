@@ -69,14 +69,14 @@
   font-size: 1.1rem;
 }
 
-.box1 {
+.memoryPad {
   grid-area: box1;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.box2 {
+.numberPad {
   grid-area: box2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -84,7 +84,7 @@
   align-items: center;
 }
 
-.box3 {
+.operationPad {
   grid-area: box3;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -92,7 +92,7 @@
   align-items: center;
 }
 
-#plus {
+#add {
   grid-row: 3/5;
   height: 90px;
 

@@ -25,17 +25,44 @@ function getOperation() {
 	return window[operator](a,b);
 }
 
-// numbers functionality
+// NUMBERPAD FUNCTIONALITY
 
-let storageValue = 0; // number variable
+let displayValue = 0;
+const display = document.querySelector('.display');
 
 const numbers = document.querySelectorAll('.numbers');
-numbers.forEach((number) => {
+numbers.forEach(number => {
 	number.addEventListener('click', function(e) {
-		storageValue = storageValue.toString() + e.target.innerText;
-		storageValue = parseFloat(storageValue);
+		switch (e.target.id) {
+			case 'comma':
+				if (displayValue.indexOf('.') === -1) {
+					displayValue = displayValue + '.';
+				}
+				break;
+			case 'sign':
+				displayValue = (displayValue*-1).toString();
+				break;
+			default:
+				displayValue = displayValue + e.target.innerText;
+				displayValue = parseFloat(displayValue).toString();
+				break;
+		}
+				
+		display.innerText = displayValue;
+	})
+});
 
-		const display = document.querySelector('.display');
-		display.innerText = storageValue;
-	});
+// OPERATION FUNCTIONALITY
+
+let operation = '';
+let containerValue = 0;
+let result = 0;
+
+const operators = document.querySelectorAll('.operators')
+operators.forEach(element => {
+	element.addEventListener('click', function(e) {
+		containerValue = parseFloat(displayValue);
+		displayValue = 0;
+		
+	})
 });
